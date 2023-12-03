@@ -31,7 +31,7 @@ with st.sidebar:
 
 if OPENAI_API_KEY:
     os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY 
-    chat = ChatOpenAI(model_name='gpt-3.5-turbo')
+    chat = ChatOpenAI(model_name='gpt-4-0613')
 
 if pregunta_esqueleto:
 
@@ -41,14 +41,9 @@ if pregunta_esqueleto:
      que realice la acción que te especifico ahora: "
       {preguntaesqueleto}
       "
-      Ten en cuenta lo siguiente. El nombre del PARRAFO debe ser corto de no mas de 10 caracteres y que sea un nombre
-      con relación a la tarea que se especifica se quiere hacer.
-
-      Crea el programa de forma que se pueda copiar y escribe SOLO CODIGO COBOL no incluyas frases tuyas
-
-    NO ESCRIBAS algo como : 'Aquí tienes el código COBOL para el programa que realiza el mantenimiento de la tabla...',
-    repito SOLO CODIGO COBOL
-
+    Ten en cuenta lo siguiente. El nombre del PARRAFO debe ser corto de no mas de 10 caracteres y que sea un nombre
+    con relación a la tarea que se especifica se quiere hacer.
+    En tu respuesta genera sólamente CODIGO COBOL. No incluyas comentarios, aclaraciones o descripciones.
       '''
     chain_esqueleto = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_esqueleto))
 
