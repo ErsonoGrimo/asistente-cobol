@@ -254,7 +254,7 @@ else:
         st.text ('''     
         
         Estamos desarrollando un asistente que te permita codificar tus programas COBOL
-        de forma automatizada con breves indicaciones el el SIDEBAR de tu derecha.
+        de forma automatizada con breves indicaciones el el SIDEBAR de tu izquierda.
 
         Por ahora solo hemos implementado que pudas pedir un proceso puro que 
         se te mostrara en un programa COBOL simple dentro de un parrafo para 
