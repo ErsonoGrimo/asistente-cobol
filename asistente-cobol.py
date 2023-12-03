@@ -248,23 +248,24 @@ else:
         st.code(respuesta_SQL, language='sql')
     else:
 
-        st.title ("Asistente IA para desarrollar COBOL en un Mainframe")
-        st.header('Laboratorio de desarrolllo', divider='rainbow')
+        st.title ("Asistente de IA para Desarrollo de COBOL en Mainframe")
+        st.header('Laboratorio de Desarrolllo', divider='rainbow')
         st.header('_by_  :blue[Ersono] :santa:')
         st.text ('''     
-        
-        Estamos desarrollando un asistente que te permita codificar tus programas COBOL
-        de forma automatizada con breves indicaciones el el SIDEBAR de tu izquierda.
+        Estamos desarrollando un asistente que te permitirá codificar tus 
+        programas en COBOL de manera automatizada, siguiendo breves 
+        indicaciones en el SIDEBAR de tu izquierda.
 
-        Por ahora solo hemos implementado que pudas pedir un proceso puro que 
-        se te mostrara en un programa COBOL simple dentro de un parrafo para 
-        que lo puedas probar y validar.
+        Por el momento, hemos implementado la capacidad de solicitar un 
+        proceso puro, que se mostrará en un programa COBOL sencillo
+        dentro de un párrafo, para que puedas probarlo y validar su 
+        funcionamiento.
 
-        Y un uso más potente donde puedes darle instrucciones sobre una tabla
-        y te crea el código en DB2 para poder generarla en el Mainframe
-        y un módulo de mantenimiento en COBOL.
+        Además, ofrecemos una funcionalidad más avanzada, donde puedes 
+        proporcionar instrucciones sobre una tabla, y el asistente 
+        creará el código en DB2 para generarla en el Mainframe, 
+        incluyendo un módulo de mantenimiento en COBOL.
 
-        Seguiremos ampliando este asistente y mejorandolo hasta que 
-        sea funcional.
-        
+        Continuaremos expandiendo y mejorando este asistente hasta que 
+        sea plenamente funcional.
         ''', )
