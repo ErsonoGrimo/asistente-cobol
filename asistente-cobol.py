@@ -251,7 +251,9 @@ else:
         st.title ("Asistente IA para desarrollar COBOL en un Mainframe")
         st.header('Laboratorio de desarrolllo', divider='rainbow')
         st.header('_by_  :blue[Ersono] :santa:')
-        st.text ('''     Estamos desarrollando un asistente que te permita codificar tus programas COBOL
+        st.text ('''     
+        
+        Estamos desarrollando un asistente que te permita codificar tus programas COBOL
         de forma automatizada con breves indicaciones el el SIDEBAR de tu derecha.
 
         Por ahora solo hemos implementado que pudas pedir un proceso puro que 
@@ -263,4 +265,6 @@ else:
         y un módulo de mantenimiento en COBOL.
 
         Seguiremos ampliando este asistente y mejorandolo hasta que 
-        sea funcional.''', )
+        sea funcional.
+        
+        ''', )
