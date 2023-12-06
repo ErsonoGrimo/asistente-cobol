@@ -50,6 +50,9 @@ if pregunta_esqueleto:
     En tu respuesta genera sólamente CODIGO COBOL. No incluyas comentarios, aclaraciones o descripciones.
     El nombre del programa debe tener 8 caracteres y tener relación con la tarea del párrafo solicitado.
     Ejemplo: Si el párrafo se llama, VALIDAR-FECHA. , el programa debe llamarse algo como VALFECHA.
+
+    El código no debe tener una anchura de columnas mayor a 72,para que se pueda copiar y pegar en un
+    editor de MAINFRAME.
       '''
     chain_esqueleto = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_esqueleto))
 
