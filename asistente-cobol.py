@@ -23,6 +23,7 @@ for page in pdf_reader.pages:
 # MODELO
 # Add a slider to the sidebar:
 with st.sidebar:
+    st.image("caracol.jpg")
     st.sidebar.title("ASISTENTE COBOL")
     pregunta_esqueleto = st.text_input("Describe un proceso puro para hacer en COBOL")
     pregunta_tabla = st.text_input("Cuentame que tabla quieres crear en DB2")
@@ -36,19 +37,23 @@ if OPENAI_API_KEY:
 if pregunta_esqueleto:
 
     #Cadena para crear las tablas.
-    prompt_esqueleto = '''Eres un experto en DB2, COBOL Y JCL. 
+    prompt_esqueleto = '''Eres un experto en DB2, COBOL Y JCL.
      Genera un programa COBOL simple y escribe en la PROCEDURE DIVISION un PARRAFO 
      que realice la acción que te especifico ahora: "
       {preguntaesqueleto}
       "
-    Ten en cuenta lo siguiente. El nombre del PARRAFO debe ser corto de no mas de 10 caracteres y que sea un nombre
-    con relación a la tarea que se especifica se quiere hacer.
+    Ten en cuenta lo siguiente:
+    El nombre del PARRAFO debe ser corto de no mas de 15 caracteres y que sea un nombre
+    que identifique la tarea que realiza.
+    Ejemplo: Si es un párrafo con un algoritmo para validar fecha , llamarlo VALIDAR-FECHA.
+
     En tu respuesta genera sólamente CODIGO COBOL. No incluyas comentarios, aclaraciones o descripciones.
+    El nombre del programa debe tener 8 caracteres y tener relación con la tarea del párrafo solicitado.
+    Ejemplo: Si el párrafo se llama, VALIDAR-FECHA. , el programa debe llamarse algo como VALFECHA.
       '''
     chain_esqueleto = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_esqueleto))
 
     respuesta_esqueleto = chain_esqueleto.run({ "preguntaesqueleto":pregunta_esqueleto})
-    import streamlit as st
 
     st.header('Aquí tienes tu proceso puro COBOL', divider='rainbow')
     st.header('_Esperamos que te_  :blue[guste] :santa:')
