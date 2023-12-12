@@ -23,10 +23,11 @@ for page in pdf_reader.pages:
 # MODELO
 # Add a slider to the sidebar:
 with st.sidebar:
-    st.image("caracol.jpg")
     st.sidebar.title("ASISTENTE COBOL")
-    pregunta_esqueleto = st.text_input("Describe un proceso puro para hacer en COBOL")
-    pregunta_tabla = st.text_input("Cuentame que tabla quieres crear en DB2")
+    pregunta_esqueleto = st.text_input("Describe PROCESOS PUROS")
+    pregunta_tabla = st.text_input("Describee Tabla y MODULO CRUD")
+    pregunta_cursor = st.text_input("Describe programa CURSOR")
+    pregunta_batch = st.text_input("Describe programa BATCH")
     OPENAI_API_KEY = st.text_input('OpenAI API Key', type='password')
 
 
@@ -45,14 +46,16 @@ if pregunta_esqueleto:
     Ten en cuenta lo siguiente:
     El nombre del PARRAFO debe ser corto de no mas de 15 caracteres y que sea un nombre
     que identifique la tarea que realiza.
+
     Ejemplo: Si es un párrafo con un algoritmo para validar fecha , llamarlo VALIDAR-FECHA.
 
     En tu respuesta genera sólamente CODIGO COBOL. No incluyas comentarios, aclaraciones o descripciones.
+
     El nombre del programa debe tener 8 caracteres y tener relación con la tarea del párrafo solicitado.
     Ejemplo: Si el párrafo se llama, VALIDAR-FECHA. , el programa debe llamarse algo como VALFECHA.
 
-    El código no debe tener una anchura de columnas mayor a 72,para que se pueda copiar y pegar en un
-    editor de MAINFRAME.
+    Las lineas de código no deben superar el ancho de 50 caracteres, para no superar las 72
+    columnas en un editor de MAINFRAME.
       '''
     chain_esqueleto = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_esqueleto))
 
