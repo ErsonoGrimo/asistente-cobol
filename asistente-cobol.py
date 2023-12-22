@@ -237,9 +237,8 @@ else:
 
     Asta aquí el ejemplo de programa.
 
-    IMPORTANTE, debes de escribir el codigo de forma que ocupe las columanas para que en COBOL
-    pueda funcionar. En cada linea tienes que dejar los espacios en blanco necesarios para que la instruccion
-    comience en la columna que debe.
+    IMPORTANTE, debes de escribir el codigo de forma que ocupe como maximo 50 caracteres de ancho, 
+    para que en un editor COBOL, mainframe de 72 columnas pueda funcionar
     '''
 
         chain_programa = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_programa))
@@ -250,33 +249,44 @@ else:
         st.header('_Esperamos que te_  :blue[guste] :santa:')
         st.code(respuesta_programa, language='cobol')
 
-        prompt_sql = "Eres un experto en DB2. Quiero que resuelvas, usando estos dato ' {resputatabla} ', crees el codigo SQL, DB2 para crear la tabla y su indice único.Tambien el registro COBOL para los campos de la tabla. NO DES MÁS SUGERENCIAS QUE ESTO QUE TE PIDO"
-
-        chain_sql = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_sql))
-
-        respuesta_SQL = chain_sql.run({"resputatabla": respuesta_tabla})
-
-        st.code(respuesta_SQL, language='sql')
     else:
 
-        st.title ("Asistente de IA para Desarrollo de COBOL en Mainframe")
-        st.header('Laboratorio de Desarrolllo', divider='rainbow')
-        st.header('_by_  :blue[Ersono] :santa:')
-        st.text ('''     
-        Estamos desarrollando un asistente que te permitirá codificar tus 
-        programas en COBOL de manera automatizada, siguiendo breves 
-        indicaciones en el SIDEBAR de tu izquierda.
+        if pregunta_cursor:
 
-        Por el momento, hemos implementado la capacidad de solicitar un 
-        proceso puro, que se mostrará en un programa COBOL sencillo
-        dentro de un párrafo, para que puedas probarlo y validar su 
-        funcionamiento.
+            prompt_cursor = '''Eres un experto programador en COBOL: Siguiendo estas indicaciones:
+                               ' {preguntacursor}
+                               Crea un programa COBOL basado en la lectura y proceso de un cursor
+                               como se te ha especificado
+                               Separa en parrafos denifindos el DECLARE CURSOR, EL OPEN CURSOR, EL FETCH Y EL CLOSE CURSOR
+                            '''
 
-        Además, ofrecemos una funcionalidad más avanzada, donde puedes 
-        proporcionar instrucciones sobre una tabla, y el asistente 
-        creará el código en DB2 para generarla en el Mainframe, 
-        incluyendo un módulo de mantenimiento en COBOL.
+            chain_cursor = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_cursor))
+            respuesta_cursor = chain_cursor.run({"preguntacursor": pregunta_cursor})
+            st.header('Aquí tienes tu programa que procesa CURSOR', divider='rainbow')
+            st.header('_Esperamos que te_  :blue[guste] :santa:')
+            st.code(respuesta_cursor, language='cobol')
 
-        Continuaremos expandiendo y mejorando este asistente hasta que 
-        sea plenamente funcional.
-        ''', )
+        
+        else:
+
+            st.title ("Asistente de IA para Desarrollo de COBOL en Mainframe")
+            st.header('Laboratorio de Desarrolllo', divider='rainbow')
+            st.header('_by_  :blue[Ersono] :santa:')
+            st.text ('''     
+            Estamos desarrollando un asistente que te permitirá codificar tus 
+            programas en COBOL de manera automatizada, siguiendo breves 
+            indicaciones en el SIDEBAR de tu izquierda.
+
+            Por el momento, hemos implementado la capacidad de solicitar un 
+            proceso puro, que se mostrará en un programa COBOL sencillo
+            dentro de un párrafo, para que puedas probarlo y validar su 
+            funcionamiento.
+
+            Además, ofrecemos una funcionalidad más avanzada, donde puedes 
+            proporcionar instrucciones sobre una tabla, y el asistente 
+            creará el código en DB2 para generarla en el Mainframe, 
+            incluyendo un módulo de mantenimiento en COBOL.
+
+            Continuaremos expandiendo y mejorando este asistente hasta que 
+            sea plenamente funcional.
+            ''', )
