@@ -25,7 +25,7 @@ for page in pdf_reader.pages:
 with st.sidebar:
     st.sidebar.title("ASISTENTE COBOL")
     pregunta_esqueleto = st.text_input("Describe PROCESOS PUROS")
-    pregunta_tabla = st.text_input("Describee Tabla y MODULO CRUD")
+    pregunta_tabla = st.text_input("Describe Tabla y MODULO CRUD")
     pregunta_cursor = st.text_input("Describe programa CURSOR")
     pregunta_batch = st.text_input("Describe programa BATCH")
     OPENAI_API_KEY = st.text_input('OpenAI API Key', type='password')
@@ -80,7 +80,12 @@ else:
 
         prompt_programa = '''Eres un experto programador en COBOL
         
-        Con la información detallada de esta tabla: {resputatabla} crea un programa cobol con las siguientes instrucciones:
+        Con la información detallada de esta tabla: [ {resputatabla} ]:
+        
+        1º Crea la sentencia en SQL DB2, para CREAR LA TABLA con la sentencia CREATE TABLE
+        2º Crea el registro de variables COBOL correspondiente a la tabla.
+
+        3º Crea un programa cobol con las siguientes instrucciones:
         Este programa realizará el mantenimiento de la tabla y debe realizar estas 4 funciones con instrucciones SLQ DB2: 
         Dar de alta un registro con INSERT INTO
         Modificar un registro con UPDATE
@@ -117,7 +122,7 @@ else:
 
         Crea el programa COBOL siguiendo la ESTRUCTURA DE codigo de ejemplo que te pongo a continuación:
 
-        IDENTIFICATION DIVISION.
+    IDENTIFICATION DIVISION.
     PROGRAM-ID. MANTENIMIENTO-TABLA.
 
     AUTHOR. ERSONO.
@@ -133,10 +138,10 @@ else:
     02 OBSERVACIONES PIC X(150).
     02 IMPORTE PIC S9(13)V99.
     01 OPCION PIC X.
-    88 OPCION-ALTA VALUE 'A'.
-    88 OPCION-MODIFICAR VALUE 'M'.
-    88 OPCION-ELIMINAR VALUE 'E'.
-    88 OPCION-CONSULTAR VALUE 'C'.
+        88 OPCION-ALTA VALUE 'A'.
+        88 OPCION-MODIFICAR VALUE 'M'.
+        88 OPCION-ELIMINAR VALUE 'E'.
+        88 OPCION-CONSULTAR VALUE 'C'.
     01 RESULTADO PIC X(2).
     88 OK VALUE 'OK'.
     88 KO VALUE 'KO'.
@@ -238,7 +243,9 @@ else:
     Asta aquí el ejemplo de programa.
 
     IMPORTANTE, debes de escribir el codigo de forma que ocupe como maximo 50 caracteres de ancho, 
-    para que en un editor COBOL, mainframe de 72 columnas pueda funcionar
+    para que en un editor COBOL, mainframe de 72 columnas pueda funcionar.
+
+
     '''
 
         chain_programa = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_programa))
