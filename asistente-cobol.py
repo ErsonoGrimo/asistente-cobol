@@ -82,10 +82,7 @@ else:
         
         Con la información detallada de esta tabla: [ {resputatabla} ]:
         
-        1º Crea la sentencia en SQL DB2, para CREAR LA TABLA con la sentencia CREATE TABLE
-        2º Crea el registro de variables COBOL correspondiente a la tabla.
-
-        3º Crea un programa cobol con las siguientes instrucciones:
+        Y ahora tambien, Crea un programa cobol con las siguientes instrucciones:
         Este programa realizará el mantenimiento de la tabla y debe realizar estas 4 funciones con instrucciones SLQ DB2: 
         Dar de alta un registro con INSERT INTO
         Modificar un registro con UPDATE
@@ -277,7 +274,7 @@ else:
         else:
 
             st.title ("Asistente de IA para Desarrollo de COBOL en Mainframe")
-            st.header('Laboratorio de Desarrolllo', divider='rainbow')
+            st.header('Laboratorio de Desarrollo', divider='rainbow')
             st.header('_by_  :blue[Ersono] :santa:')
             st.text ('''     
             Estamos desarrollando un asistente que te permitirá codificar tus 
@@ -285,7 +282,8 @@ else:
             indicaciones en el SIDEBAR de tu izquierda.
 
             Por el momento, hemos implementado la capacidad de solicitar un 
-            proceso puro, que se mostrará en un programa COBOL sencillo
+            proceso puro, que se mostrará en un programa COBOL 
+            
             dentro de un párrafo, para que puedas probarlo y validar su 
             funcionamiento.
 
