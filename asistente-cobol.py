@@ -76,6 +76,8 @@ else:
 
         respuesta_tabla = chain_tabla.run({"contextotabla": contexto_tabla, "preguntatabla":pregunta_tabla})
 
+        st.code(respuesta_tabla, language='cobol')
+
         #Cadena crear programa de mantenimiento tabla
 
         prompt_programa = '''Eres un experto programador en COBOL
