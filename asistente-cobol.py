@@ -70,7 +70,9 @@ else:
     if pregunta_tabla:
 
         #Cadena para crear las tablas.
-        prompt_tabla = "Eres un experto en DB2, COBOL Y JCL. Quiero que resuelvas, usando estas directrices: ' {contextotabla} ', la siguiente solicitud de creacion de tabla del usuario: {preguntatabla}"
+        prompt_tabla = '''Eres un experto en DB2, COBOL Y JCL. 
+        Quiero que resuelvas, usando estas directrices: ' {contextotabla} ', 
+        la solicitud de creacion de tabla DB2, que te realiza el usuario y que te indico ahora: {preguntatabla}'''
 
         chain_tabla = LLMChain(llm=chat, prompt=PromptTemplate.from_template(prompt_tabla))
 
