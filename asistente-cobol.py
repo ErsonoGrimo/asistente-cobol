@@ -254,7 +254,7 @@ else:
         respuesta_programa = chain_programa.run({"resputatabla": respuesta_tabla})
 
         st.header('Aquí tienes tu mantenimiento en COBOL', divider='rainbow')
-        st.header('_Esperamos que te_  :blue[guste] :santa:')
+        st.header('_Esperamos que te_  :blue[guste] ')
         st.code(respuesta_programa, language='cobol')
 
     else:
