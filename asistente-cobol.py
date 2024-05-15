@@ -24,10 +24,10 @@ for page in pdf_reader.pages:
 # Add a slider to the sidebar:
 with st.sidebar:
     st.sidebar.title("ASISTENTE COBOL")
-    pregunta_esqueleto = st.text_input("Describe PROCESOS PUROS")
-    pregunta_tabla = st.text_input("Describe Tabla y MODULO CRUD")
-    pregunta_cursor = st.text_input("Describe programa CURSOR")
-    pregunta_batch = st.text_input("Describe programa BATCH")
+    pregunta_esqueleto = st.text_input("PROCESOS PUROS")
+    pregunta_tabla = st.text_input("MODULO CRUD")
+    pregunta_cursor = st.text_input("CURSOR")
+    pregunta_batch = st.text_input("BATCH")
     OPENAI_API_KEY = st.text_input('OpenAI API Key', type='password')
 
 
@@ -62,7 +62,7 @@ if pregunta_esqueleto:
     respuesta_esqueleto = chain_esqueleto.run({ "preguntaesqueleto":pregunta_esqueleto})
 
     st.header('Aquí tienes tu proceso puro COBOL', divider='rainbow')
-    st.header('_Esperamos que te_  :blue[guste] :santa:')
+    st.header('_Esperamos que te_  :blue[guste] :sun:')
     st.code(respuesta_esqueleto, language='cobol')
 
 else:
@@ -279,7 +279,7 @@ else:
 
             st.title ("Asistente de IA para Desarrollo de COBOL en Mainframe")
             st.header('Laboratorio de Desarrollo', divider='rainbow')
-            st.header('_by_  :blue[Ersono] :santa:')
+            st.header('_by_  :blue[Ersono]')
             st.text ('''     
             Estamos desarrollando un asistente que te permitirá codificar tus 
             programas en COBOL de manera automatizada, siguiendo breves 
