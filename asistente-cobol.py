@@ -33,7 +33,7 @@ with st.sidebar:
 
 if OPENAI_API_KEY:
     os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY 
-    chat = ChatOpenAI(model_name='gpt-4-0613')
+    chat = ChatOpenAI(model_name='gpt-4o')
 
 if pregunta_esqueleto:
 
